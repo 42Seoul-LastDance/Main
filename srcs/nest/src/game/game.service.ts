@@ -271,7 +271,7 @@ export class GameService {
             gameInfo['paddlePosZ'] < PADDLE_POS_Z_MIN ||
             gameInfo['paddlePosZ'] > PADDLE_POS_Z_MAX
         ) {
-            this.finishGame(roomId, (side + 1) % 2, GameEndStatus.CHEATING);
+            await this.finishGame(roomId, (side + 1) % 2, GameEndStatus.CHEATING);
             return;
         }
         rival.emit('movePaddle', {
